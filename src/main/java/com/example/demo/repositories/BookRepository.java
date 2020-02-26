@@ -29,10 +29,7 @@ public class BookRepository {
 
     @Transactional
     public void deleteBook(Integer id) {
-        if (id != null) {
-            Book b = findById(id);
-            if (b != null) books.remove(b);
-        }
+        if(id!=null) entityManager.remove(findById(id));
     }
 
     @Transactional

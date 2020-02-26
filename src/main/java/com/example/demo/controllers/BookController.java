@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static java.util.stream.Collectors.toCollection;
 
@@ -16,7 +17,6 @@ import static java.util.stream.Collectors.toCollection;
 @RequiredArgsConstructor
 public class BookController {
 
-    @Autowired
     private final BookRepository bookRepository;
 
     @RequestMapping({"/", ""})
@@ -26,7 +26,7 @@ public class BookController {
 
     @GetMapping("/books-list")
     public String booksList(@RequestParam(required = false) String filter, Model model) {
-        ArrayList<Book> filtered = filter == null ? bookRepository.getBooks() :
+        List<Book> filtered = filter == null ? bookRepository.getBooks() :
                 bookRepository.getBooks().stream()
                         .filter(b -> b.toString().contains(filter)).collect(toCollection(ArrayList::new));
 

@@ -1,30 +1,31 @@
 package com.example.demo.repositories;
 
 import com.example.demo.entities.Book;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
+import javax.persistence.EntityManager;
 import java.util.ArrayList;
 
 @Repository
+@RequiredArgsConstructor
 public class BookRepository {
+
+    private final EntityManager entityManager;
 
     private final ArrayList<Book> books = new ArrayList<>();
 
-    public void addBook(Book book) {
-        books.add(book);
+    public Book addBook(Book book) {
+        return entityManager.merge(book);
     }
 
-    public Book findByIsbn(String isbn) {
-        for (Book b : books
-        ) {
-            if (b.getIsbn().equals(isbn)) return b;
-        }
-        return null;
+    public Book findById(Integer id) {
+        return entityManager.find(Book.class,id);
     }
 
-    public void deleteBook(String isbn) {
-        if (isbn != null) {
-            Book b = findByIsbn(isbn);
+    public void deleteBook(Integer id) {
+        if (id != null) {
+            Book b = findById(id);
             if (b != null) books.remove(b);
         }
     }

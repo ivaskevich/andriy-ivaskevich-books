@@ -48,8 +48,8 @@ public class BookController {
     }
 
     @GetMapping("/delete/{isbn}")
-    public String deleteBook(@PathVariable String isbn) {
-        if (!(isbn == null) && !isbn.equals("")) bookRepository.deleteBook(isbn);
+    public String deleteBook(@PathVariable String id) {
+        if (!(id == null) && !id.equals("")) bookRepository.deleteBook(Integer.parseInt(id));
         return "redirect:/books-list";
     }
 }

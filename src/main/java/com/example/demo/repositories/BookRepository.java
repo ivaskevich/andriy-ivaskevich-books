@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import java.util.ArrayList;
+import java.util.List;
 
 @Repository
 @RequiredArgsConstructor
@@ -35,8 +36,8 @@ public class BookRepository {
     }
 
     @Transactional
-    public ArrayList<Book> getBooks() {
-        return new ArrayList<>(books);
+    public List<Book> getBooks() {
+        return entityManager.createQuery("SELECT a FROM  Book a",Book.class).getResultList();
     }
 
 

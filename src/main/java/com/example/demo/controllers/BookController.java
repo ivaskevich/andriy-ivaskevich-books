@@ -3,12 +3,10 @@ package com.example.demo.controllers;
 import com.example.demo.entities.Book;
 import com.example.demo.repositories.BookRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,9 +16,6 @@ import static java.util.stream.Collectors.toCollection;
 @Controller
 @RequiredArgsConstructor
 public class BookController {
-
-    @Value("${upload.path}")
-    private String uploadPath;
 
     private final BookRepository bookRepository;
 

@@ -72,10 +72,8 @@
                                   placeholder="Description"></textarea>
                     </div>
                     <div class="form-group">
-                        <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="customFile" name="file">
-                            <label class="custom-file-label" for="customFile">Choose photo</label>
-                        </div>
+                        <input type="text" class="form-control" name="filename"
+                               value="<#if book??>${book.filename}</#if>" placeholder="Book cover url">
                     </div>
                     <div class="form-group">
                         <button class="btn btn-outline-primary" type="submit">Save book</button>

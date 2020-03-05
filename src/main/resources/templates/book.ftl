@@ -4,7 +4,7 @@
     <div class="card mb-3" style="max-width: 1200px;">
         <div class="row no-gutters">
             <div class="col-md-4">
-                <img src="/img/${book.filename}" class="card-img" alt="Card image cap">
+                <img src="${book.filename}" class="card-img" alt="Card image cap">
             </div>
             <div class="col-md-8">
                 <div class="card-body">

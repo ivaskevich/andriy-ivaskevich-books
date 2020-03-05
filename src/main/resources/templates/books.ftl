@@ -15,6 +15,7 @@
                 <th>Author</th>
                 <th>Publishing year</th>
                 <th></th>
+                <th></th>
                 </thead>
                 <tbody>
                 <#list books as book>
@@ -24,7 +25,12 @@
                         <td>${book.author}</td>
                         <td>${book.publishingYear}</td>
                         <td>
-                            <form action="/delete/${book.isbn}" class="form-inline">
+                            <form action="/book/${book.id}" class="form-inline">
+                                <button class="btn btn-outline-primary" type="submit">View the book</button>
+                            </form>
+                        </td>
+                        <td>
+                            <form action="/delete/${book.id}" class="form-inline">
                                 <button class="btn btn-outline-danger" type="submit">Delete book</button>
                             </form>
                         </td>
@@ -43,7 +49,7 @@
         <br><br>
         <div class="collapse <#if book??>show</#if>" id="collapseExample">
             <div class="form-group">
-                <form method="post" action="/add-book">
+                <form method="post" enctype="multipart/form-data" action="/add-book">
                     <div class="form-group">
                         <input type="text" class="form-control" name="isbn"
                                value="<#if book??>${book.isbn}</#if>" placeholder="ISBN">
@@ -59,6 +65,17 @@
                     <div class="form-group">
                         <input type="text" class="form-control" name="publishingYear"
                                value="<#if book??>${book.publishingYear}</#if>" placeholder="Publishing year">
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" name="description" rows="4"
+                                  value="<#if book??>${book.description}</#if>"
+                                  placeholder="Description"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="customFile" name="file">
+                            <label class="custom-file-label" for="customFile">Choose photo</label>
+                        </div>
                     </div>
                     <div class="form-group">
                         <button class="btn btn-outline-primary" type="submit">Save book</button>

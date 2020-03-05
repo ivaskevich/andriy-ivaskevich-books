@@ -23,6 +23,8 @@ public class Book {
     private String title;
     private String author;
     private Integer publishingYear;
+    private String description;
+    private String filename;
 
     @Override
     public String toString() {

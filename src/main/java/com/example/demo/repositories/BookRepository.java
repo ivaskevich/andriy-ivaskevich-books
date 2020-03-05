@@ -36,6 +36,4 @@ public class BookRepository {
     public List<Book> getBooks() {
         return entityManager.createQuery("SELECT a FROM  Book a",Book.class).getResultList();
     }
-
-
 }

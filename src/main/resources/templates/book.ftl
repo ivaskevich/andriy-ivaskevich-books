@@ -22,9 +22,8 @@
     </div>
 
     <div>
-        <form action="/" class="form-inline">
-            <button class="btn btn-outline-primary" type="submit">Back to catalogue</button>
-        </form>
+        <a href="/" class="btn btn-outline-primary">Back to catalogue</a>
     </div>
+    <br><br>
 
 </@c.page>

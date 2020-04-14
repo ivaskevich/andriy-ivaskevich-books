@@ -80,7 +80,10 @@
                     type: 'POST',
                     url: '/favorite/add/' + id,
                     success: function (response) {
-                        loadBooks()
+                        $(".book[name = '" + id + "']")
+                            .removeClass("btn btn-outline-primary")
+                            .addClass("btn btn-outline-danger book")
+                            .html("Remove from favorites");
                     }
                 })
             } else {
@@ -88,7 +91,10 @@
                     type: 'POST',
                     url: '/favorite/delete/' + id,
                     success: function (response) {
-                        loadBooks()
+                        $(".book[name = '" + id + "']")
+                            .removeClass("btn btn-outline-danger book")
+                            .addClass("btn btn-outline-primary book")
+                            .html("Add to favorites");
                     }
                 })
             }

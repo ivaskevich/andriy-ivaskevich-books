@@ -41,10 +41,12 @@ public class RestBookController {
     }
 
     @PostMapping("/admin/books/update/{id}")
-    public ResponseEntity<Book> updateBook(@PathVariable Integer id, @RequestBody final Book bookDetails) throws BookNotFoundException {
+    public ResponseEntity updateBook(@PathVariable Integer id, @RequestBody final Book bookDetails) throws BookNotFoundException {
         Book book = bookRepository.findById(id)
                 .orElseThrow(() -> new BookNotFoundException(id));
-
+        if (!bookDetails.getIsbn().matches(
+                "^(?:ISBN(?:-10)?:? )?(?=[0-9X]{10}$|(?=(?:[0-9]+[- ]){3})[- 0-9X]{13}$)[0-9]{1,5}[- ]?[0-9]+[- ]?[0-9]+[- ]?[0-9X]$"))
+            return new ResponseEntity<>("isbnError", new HttpHeaders(), HttpStatus.BAD_REQUEST);
         book.setTitle(bookDetails.getTitle());
         book.setAuthor(bookDetails.getAuthor());
         book.setIsbn(bookDetails.getIsbn());

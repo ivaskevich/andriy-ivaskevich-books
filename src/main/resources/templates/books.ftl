@@ -147,8 +147,22 @@
                     success: function (response) {
                         $("#collapseExample").removeClass("show");
                         $(".form-control").val('');
+                        var isbn = $("input[name='isbn']");
+                        if (isbn.hasClass("is-invalid")) {
+                            isbn.removeClass("is-invalid");
+                            $(".invalid-feedback").remove();
+                        }
                         $('#save-book-button').html("Save book").attr('name', '');
                         loadBooks();
+                    },
+                    error: function (data, textStatus, xhr) {
+                        if (data.responseText === "isbnError") {
+                            $("input[name='isbn']").addClass("is-invalid");
+                            $("#isbnDiv").append('<div class="invalid-feedback">' +
+                                'Invalid ISBN ! Please, check and input again !' +
+                                '</div>'
+                            )
+                        } else alert("All of fields shouldn`t be empty !")
                     }
                 });
             }

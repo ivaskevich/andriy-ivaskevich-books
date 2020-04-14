@@ -1,6 +1,9 @@
-<#import "parts/common.ftl" as c>
-
-<@c.page>
+<!DOCTYPE html>
+<html lang="en">
+<#include "parts/head.ftl">
+<#include "parts/navbar.ftl">
+<body>
+<div class="container mt-5">
     <div class="card mb-3" style="max-width: 1200px;">
         <div class="row no-gutters">
             <div class="col-md-4">
@@ -24,6 +27,8 @@
     <div>
         <a href="/" class="btn btn-outline-primary">Back to catalogue</a>
     </div>
-    <br><br>
-
-</@c.page>
+</div>
+<br><br>
+<#include "parts/script.ftl">
+</body>
+</html>

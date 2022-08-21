@@ -3,9 +3,9 @@
     "relation": ["delegate_permission/common.handle_all_urls"],
     "target": {
       "namespace": "android_app",
-      "package_name": "com.newtonideas.ccapp",
+      "package_name": "com.example.test_app_links",
       "sha256_cert_fingerprints":
-      ["C2:FD:CF:41:60:86:ED:B6:5C:FD:EF:31:35:50:01:37:8E:F1:A2:AF:C0:46:C7:04:60:56:80:EE:F3:8E:4D:D5"]
+      ["11:9D:CA:D7:C9:BD:70:36:37:F2:38:1D:41:39:70:E9:79:73:25:A8:F3:D6:1C:E3:09:30:21:C5:4D:3C:36:43"]
     }
   }
 ]

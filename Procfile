@@ -1,1 +1,1 @@
-web: java -cp target/classes/:target/dependency/* com.example.demo
+web: java -jar target/andriy-ivaskevich-books-1.0.jar

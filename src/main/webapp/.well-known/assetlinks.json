@@ -1,0 +1,11 @@
+﻿[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.newtonideas.ccapp",
+      "sha256_cert_fingerprints":
+      ["C2:FD:CF:41:60:86:ED:B6:5C:FD:EF:31:35:50:01:37:8E:F1:A2:AF:C0:46:C7:04:60:56:80:EE:F3:8E:4D:D5"]
+    }
+  }
+]
